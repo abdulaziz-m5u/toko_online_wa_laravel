@@ -123,7 +123,7 @@
 
 <!-- REQUIRED SCRIPTS -->
 
-@vite('resources/js/app.js')
+<script src="{{ asset('build/assets/app-2bd83e1b.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('js/adminlte.min.js') }}" defer></script>
 

@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::group(['middleware' => ['auth', 'is_admin'], 'prefix' => 'admin', 'as' => 'admin.'], function() {
     // admin
@@ -29,7 +29,8 @@ Route::group(['middleware' => ['auth', 'is_admin'], 'prefix' => 'admin', 'as' =>
     Route::resource('products.product_images', \App\Http\Controllers\Admin\ProductImageController::class);
 });
 
-Route::get('/', function() {
-    return view('frontend.homepage');
-});
+Route::get('/', [\App\Http\Controllers\Frontend\HomepageController::class, 'index'])->name('homepage');
+Route::get('/produk/{product:slug}', [\App\Http\Controllers\Frontend\HomepageController::class, 'detail'])->name('detail');
+Route::get('/kategori/{category:slug}', [\App\Http\Controllers\Frontend\HomepageController::class, 'kategori'])->name('kategori');
+Route::post('/checkout', [\App\Http\Controllers\Frontend\HomepageController::class, 'checkout'])->name('checkout');
 

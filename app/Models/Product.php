@@ -80,4 +80,10 @@ class Product extends Model
 	{
 		return $this->hasMany(ProductImage::class)->orderBy('id', 'DESC');
 	}
+
+	public function scopeActive($query)
+	{
+		return $query->where('status', 1)
+			->where('parent_id', null);
+	}
 }

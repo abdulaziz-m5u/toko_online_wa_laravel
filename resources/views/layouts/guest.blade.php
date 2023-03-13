@@ -27,7 +27,7 @@
 </div>
 <!-- /.login-box -->
 
-@vite('resources/js/app.js')
+<script src="{{ asset('build/assets/app-2bd83e1b.js') }}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->

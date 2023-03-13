@@ -32,7 +32,7 @@
                         @forelse($products as $product)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $product->sku }}</td>
+                                <td>Link Produk </td>
                                 <td>{{ $product->type }}</td>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->price }}</td>

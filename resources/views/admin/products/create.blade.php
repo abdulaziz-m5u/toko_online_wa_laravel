@@ -45,7 +45,7 @@
                         <!-- sampai sini -->
                           <select class="form-control select-multiple"  multiple="multiple" name="category_id[]" id="category_id">
                             @foreach($categories as $category)
-                              <option {{ old('category_id') == $category->id ? 'selected' : null }} value="{{ $category->id }}"> {{ $category->name }}</option>
+                              <option {{ old('category_id[]') == $category->id ? 'selected' : null }} value="{{ $category->id }}"> {{ $category->name }}</option>
                             @endforeach
                           </select>
                         </div>

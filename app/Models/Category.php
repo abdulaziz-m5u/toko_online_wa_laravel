@@ -34,4 +34,19 @@ class Category extends Model
     public function children(){
         return $this->hasMany(Category::class);
     }
+
+    public static function childIds($parentId = 0)
+	{
+		$categories = Category::select('id','name','parent_id')->where('parent_id', $parentId)->get()->toArray();
+
+		$childIds = [];
+		if(!empty($categories)){
+			foreach($categories as $category){
+				$childIds[] = $category['id'];
+				$childIds = array_merge($childIds, Category::childIds($category['id']));
+			}
+		}
+
+		return $childIds;
+	}
 }
